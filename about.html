@@ -99,6 +99,87 @@
             line-height: 1.7;
             color: #d7e5ee;
         }
+
+        .about-subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #bde7ff;
+            margin: 0.2rem 0 0.8rem;
+        }
+
+        .subtitle-date {
+            color: rgba(189, 231, 255, 0.9);
+            margin-left: 0.6rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: none;
+            opacity: 0.95;
+        }
+
+        .major-bubbles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+            margin-top: 0.2rem;
+            justify-content: flex-start;
+        }
+
+        .major-bubble {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.1rem;
+            border-radius: 999px;
+            color: #f3fbff;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            text-align: center;
+            min-height: 44px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+        }
+
+        .major-bubble:nth-child(1) {
+            background: linear-gradient(135deg, rgba(125, 211, 252, 0.28), rgba(255, 255, 255, 0.1));
+        }
+
+        .major-bubble:nth-child(2) {
+            background: linear-gradient(135deg, rgba(167, 139, 250, 0.28), rgba(255, 255, 255, 0.1));
+        }
+
+        .major-bubble:nth-child(3) {
+            background: linear-gradient(135deg, rgba(248, 113, 113, 0.24), rgba(255, 255, 255, 0.1));
+        }
+
+        /* Noblesville High School bubble styling */
+        .hs-title {
+            margin-top: 1.6rem;
+            font-size: 1.2rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #bde7ff;
+        }
+
+        .hs-bubbles {
+            margin-top: 0.6rem;
+            display: flex;
+            gap: 0.9rem;
+        }
+
+        .hs-bubble {
+            background: linear-gradient(135deg, rgba(250, 204, 21, 0.28), rgba(255, 255, 255, 0.08));
+            color: #f4f7fb;
+            padding: 0.85rem 1.3rem;
+            border: 1px solid rgba(255,255,255,0.22);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+            border-radius: 999px;
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
@@ -114,6 +195,16 @@
     <main>
         <div class="glass-panel">
             <h1>Jay Saini</h1>
+            <p class="about-subtitle">Purdue University <span class="subtitle-date">| 2024 - 2028</span></p>
+            <div class="major-bubbles">
+                <div class="major-bubble">Computer Science, BS</div>
+                <div class="major-bubble">Business Analytics &amp; Information Management, BS</div>
+                <div class="major-bubble">Creative Writing, BA</div>
+            </div>
+            <p class="about-subtitle hs-title">Noblesville High School <span class="subtitle-date">| 2020 - 2024</span></p>
+            <div class="hs-bubbles">
+                <div class="major-bubble hs-bubble">Academic Honors Diploma</div>
+            </div>
             <p>Hi, I’m Jay Saini — welcome to my site. Explore my work and stories across the pages.</p>
         </div>
     </main>
