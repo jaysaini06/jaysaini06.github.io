@@ -12,16 +12,17 @@
         }
 
         body {
-            background-color: #000;
-            color: #fff;
+            background: linear-gradient(135deg, #07111f 0%, #15324b 45%, #29536d 100%);
+            color: #f4f7fb;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             min-height: 100vh;
         }
 
         nav {
-            background-color: #000;
-            border-bottom: 1px solid #333;
-            padding: 1rem 0;
+            background: rgba(7, 17, 31, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 0.6rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -31,56 +32,291 @@
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            max-width: 1200px;
+            gap: 0.85rem;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0.5rem 0.8rem;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 999px;
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.14);
+        }
+
+        nav li {
+            display: inline-flex;
         }
 
         nav a {
-            color: #fff;
+            color: #f4f7fb;
             text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            padding: 0.55rem 1.3rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
         }
 
         nav a:hover {
-            color: #999;
+            color: #07111f;
+            background: rgba(125, 211, 252, 0.95);
+            box-shadow: 0 10px 30px rgba(29, 78, 216, 0.24);
         }
 
         nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #fff;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
+            display: none;
         }
 
         main {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 2rem 2rem 3rem;
             min-height: calc(100vh - 80px);
         }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .page-title {
+            text-align: center;
+            font-size: clamp(3.2rem, 7vw, 5.3rem);
+            letter-spacing: 0.15em;
+            margin: 0.5rem 0 0.7rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.8s ease-out forwards;
         }
 
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #ccc;
+        .hero-bio {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 2rem;
+            color: #dceaf5;
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0;
+            transform: translateY(16px);
+            animation: slideUp 0.9s ease-out 0.15s forwards;
+        }
+
+        .hero {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+        }
+
+        .major-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin: 1.2rem 0 1.4rem;
+        }
+
+        .major-tag {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.1);
+            color: #e6f7ff;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .major-tag:nth-child(2) {
+            background: rgba(125, 211, 252, 0.16);
+            color: #bae6fd;
+        }
+
+        .major-tag:nth-child(3) {
+            background: rgba(167, 139, 250, 0.16);
+            color: #ddd6fe;
+        }
+
+        .hero-copy p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #d7e5ee;
+            max-width: 560px;
+        }
+
+        .hero-visual {
+            position: relative;
+            width: min(760px, 100%);
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            justify-self: center;
+            overflow: visible;
+        }
+
+        .hero-photo {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            background: transparent;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            padding: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .orbit-bubble {
+            position: absolute;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.2rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
+            color: #e6f7ff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.03em;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+            transition: transform 0.25s ease, background 0.25s ease;
+            z-index: 3;
+            max-width: 240px;
+            text-align: center;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .orbit-bubble:hover {
+            transform: translateY(-2px) scale(1.03);
+            background: linear-gradient(135deg, rgba(125, 211, 252, 0.3), rgba(255, 255, 255, 0.12));
+        }
+
+        .orbit-bubble {
+            animation: floatBubble 6s ease-in-out infinite;
+        }
+
+        .orbit-bubble:nth-child(2) { animation-delay: 0s; }
+        .orbit-bubble:nth-child(3) { animation-delay: 1s; }
+        .orbit-bubble:nth-child(4) { animation-delay: 2s; }
+        .orbit-bubble:nth-child(5) { animation-delay: 3s; }
+        .orbit-bubble:nth-child(6) { animation-delay: 4s; }
+        .orbit-bubble:nth-child(7) { animation-delay: 5s; }
+
+        @keyframes floatBubble {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+            }
+            50% {
+                transform: translateY(-8px) scale(1.02);
+            }
+        }
+
+        .orbit-bubble:nth-child(1) {
+            top: -5px;
+            left: 60px;
+            background: linear-gradient(135deg, rgba(125, 211, 252, 0.24), rgba(255, 255, 255, 0.1));
+        }
+
+        .orbit-bubble:nth-child(2) {
+            top: 35px;
+            right: 50px;
+            background: linear-gradient(135deg, rgba(167, 139, 250, 0.24), rgba(255, 255, 255, 0.1));
+        }
+
+        .orbit-bubble:nth-child(3) {
+            top: 145px;
+            right: 20px;
+            background: linear-gradient(135deg, rgba(248, 113, 113, 0.22), rgba(255, 255, 255, 0.1));
+        }
+
+        .orbit-bubble:nth-child(4) {
+            bottom: 40px;
+            right: 40px;
+            background: linear-gradient(135deg, rgba(45, 212, 191, 0.22), rgba(255, 255, 255, 0.1));
+        }
+
+        .orbit-bubble:nth-child(5) {
+            top: 220px;
+            left: 35px;
+            background: linear-gradient(135deg, rgba(250, 204, 21, 0.2), rgba(255, 255, 255, 0.1));
+        }
+
+        .orbit-bubble:nth-child(6) {
+            bottom: 95px;
+            left: 25px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.22), rgba(255, 255, 255, 0.1));
+        }
+
+        .orbit-bubble:nth-child(7) {
+            bottom: 15px;
+            right: 70px;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(255, 255, 255, 0.1));
+        }
+
+        .orbit-bubble:nth-child(8) {
+            top: 70px;
+            left: 20px;
+            background: linear-gradient(135deg, rgba(244, 114, 182, 0.22), rgba(255, 255, 255, 0.1));
+        }
+
+        .orbit-bubble:nth-child(9) {
+            bottom: 135px;
+            right: 10px;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.22), rgba(255, 255, 255, 0.1));
+        }
+
+        .orbit-bubble:nth-child(10) {
+            bottom: 40px;
+            left: 10px;
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.22), rgba(255, 255, 255, 0.1));
+        }
+
+        .orbit-bubble:nth-child(11) {
+            top: 155px;
+            left: 0;
+            background: linear-gradient(135deg, rgba(129, 140, 248, 0.22), rgba(255, 255, 255, 0.1));
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 0.7ch;
+            margin-left: 0.2rem;
+            color: #7dd3fc;
+            animation: blink 0.8s step-end infinite;
+        }
+
+        @media (max-width: 800px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-photo {
+                width: 260px;
+                height: 260px;
+            }
         }
     </style>
 </head>
@@ -95,8 +331,42 @@
     </nav>
 
     <main>
-        <h1>Welcome</h1>
-        <p>This is your main website page. Feel free to customize the content and styling to match your preferences.</p>
+        <h1 class="page-title">JAY SAINI</h1>
+        <p class="hero-bio" id="typing-bio"></p>
+        <section class="hero">
+            <div class="hero-visual" aria-label="Profile hub">
+                <a class="orbit-bubble" href="projects.html">Computer Science, BS</a>
+                <a class="orbit-bubble" href="projects.html">Business Analytics &amp; Information Management, BS</a>
+                <a class="orbit-bubble" href="book.html">Creative Writing, BA</a>
+                <a class="orbit-bubble" href="projects.html">HWC Engineering</a>
+                <a class="orbit-bubble" href="book.html">The Darklight Saga</a>
+                <a class="orbit-bubble" href="projects.html">Automacy AI</a>
+                <a class="orbit-bubble" href="projects.html">The Augment Impact</a>
+                <a class="orbit-bubble" href="projects.html">Sales Advisor</a>
+                <a class="orbit-bubble" href="projects.html">Geek Squad Consulation Agent</a>
+                <a class="orbit-bubble" href="projects.html">Over Totality (Podcast)</a>
+                <div class="hero-photo" aria-label="Profile photo">
+                    <img src="IMG_0547.jpeg" alt="Jay Saini profile photo">
+                </div>
+            </div>
+        </section>
     </main>
+    <script>
+        const bioText = "I'm a current student at Purdue University. I am an intern at HWC Engineering under the Information Technology Department.";
+        const bioElement = document.getElementById('typing-bio');
+
+        let index = 0;
+        function typeBio() {
+            if (index <= bioText.length) {
+                bioElement.innerHTML = bioText.slice(0, index) + '<span class="typing-cursor">|</span>';
+                index++;
+                setTimeout(typeBio, 28);
+            } else {
+                bioElement.innerHTML = bioText;
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', typeBio);
+    </script>
 </body>
 </html>
